@@ -25,7 +25,7 @@ Some sections of the code contained important keys that we cannot publish for se
 
 - `app.rb` line 34 contains a session secret. You should change this to something secret so that a hacker cannot forge a session.
 
-- `routes/main.rb` line 257 contains a password that is required to add together courses. You shuold change this to something secret so that a hacker cannot 
+- `routes/main.rb` line 257 contains a password that is required to add together courses. You should change this to something secret so that a hacker cannot wreak havoc on comparination.
 
 ## Developing
 
