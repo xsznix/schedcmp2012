@@ -1,0 +1,32 @@
+#home {
+	margin: 6em auto 16px auto;
+	padding: 8px 32px;
+	width: 60%;
+}
+.studentlist {
+	list-style-type: none;
+}
+.studentlist img {
+	vertical-align: middle;
+}
+.studentlist li {
+	margin: 4px;
+	padding: 4px;
+	border: 1px dotted #333;
+	width: 220px;
+	font-size: 16px;
+	float: left;
+}
+
+h4 {
+	color: #888;
+	margin-top: -16px;
+}
+h1, h2, h3, h4, h5, h6 {
+	text-align: center;
+}
+
+.clear {
+	clear: both;
+	height: 16px;
+}

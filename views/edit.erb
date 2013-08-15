@@ -1,0 +1,61 @@
+<% @title = 'Edit your schedule - Schedule Comparinator 2012'; @user_css = 'edit' %>
+<%= partial :'part/head' %>
+<div id="editor" class="greybox">
+	<h1>Your Schedule</h1>
+	<hr>
+	<form action="/submitchange" method="POST">
+		<div>Enter in the course number exactly as it is on your schedule. For example, enter in 3642A - 3 if that is your number.</div>
+		<table id="courses">
+			<thead>
+				<tr>
+					<th colspan="3" style="width:50%"><h2>First Semester</h2></th>
+					<th colspan="3" style="width:50%"><h2>Second Semester</h2></th>
+				</tr>
+				<tr>
+					<th>Block</th>
+					<th>Course Number</th>
+					<th>Course Name</th>
+					<th>Block</th>
+					<th>Course Number</th>
+					<th>Course Name</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% (1..8).each do |i| %>
+				<tr>
+					<td class="block"><%= i %></td>
+					<td class="cnum">
+						<input id="cnum<%= i %>" name="<%= i %>" value="<%= @courses[i-1][:course_id] %>" />
+					</td>
+					<td class="cname" id="cname<%= i %>"><%= REDIS.get(@courses[i-1][:course_id][0,4]) %></td>
+					<td class="block"><%= i %></td>
+					<td class="cnum">
+						<input id="cnum<%= i+8 %>" name="<%= i+8 %>" value="<%= @courses[i+7][:course_id] %>" />
+					</td>
+					<td class="cname" id="cname<%= i+8 %>"><%= REDIS.get(@courses[i+7][:course_id][0,4]) %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<hr>
+		<div id="actions">
+			<input type="submit" class="g-button blue" />
+			<button id="cancel" class="g-button">Cancel</button>
+			<a href="/newuser" class="g-button">Change School...</a>
+			<a href="mailto:admin@schedulecomparinator.com" class="g-button red">Report a bug</a>
+		</div>
+	</form>
+</div>
+<script>
+$(function(){
+	// ajax magic
+	$('.cnum input').change(function(){
+		$('#cname' + $(this).attr('id').substr(4)).load('/coursename/' + this.value);
+	});
+	// cancel button
+	$('#cancel').click(function(){
+		window.location.href = '/home';
+	});
+});
+</script>
+<%= partial :'part/foot' %>

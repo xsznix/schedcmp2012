@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title><%= @title %></title>
+<link rel="shortcut icon" href="/public/img/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="/public/css/google-buttons.css" />
+<link rel="stylesheet" type="text/css" href="/public/css/core.css" />
+<% unless @user_css.nil? %>
+<link rel="stylesheet" type="text/css" href="/public/css/<%= @user_css %>.css" />
+<% end %>
+<script type="text/javascript" src="/public/js/jquery-1.7.2.min.js"></script>
+<meta name="description" content="Compare your schedule with your classmates.">
+
+<link href='http://fonts.googleapis.com/css?family=Arvo:400,700|PT+Sans:400,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div id="header">
+<a href="/"><img id="logo" src="/public/img/logo.png" /></a>
+<span id="nav">
+	<% unless @student.nil? %>
+		<a href="/edit">Edit</a>
+		<a href="/home">Compare</a>
+		<a href="/search">Search</a>
+		<a href="/logout">Logout</a>
+	<% end %>
+	<a href="/about">About</a>
+</span>
+</div>

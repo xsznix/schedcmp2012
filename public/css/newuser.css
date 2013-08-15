@@ -1,0 +1,17 @@
+#newuser {
+	margin: 6em auto 0 auto;
+	padding: 16px;
+	width: 30%;
+}
+
+.styled-select {
+   width: 100%;
+   height: 34px;
+   overflow: hidden;
+   /* THIS IS NOT NECESSARY OKAY PLEASE.
+   background: white;
+   background: url(images/arrow.png) no-repeat right white;*/
+	font-family: 'PT Sans', sans-serif;
+	font-size: medium;
+   
+}

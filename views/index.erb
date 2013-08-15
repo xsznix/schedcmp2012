@@ -1,0 +1,58 @@
+<% @title='Schedule Comparinator 2012';  @user_css='index' %>
+<%= partial :'part/head' %>
+<div id="fb-root"></div>
+<script>
+window.fbAsyncInit = function() {
+FB.init({
+appId      : '', // App ID; insert your own here
+status     : true, // check login status
+cookie     : true, // enable cookies to allow the server to access the session
+xfbml      : true  // parse XFBML
+});
+};
+
+// Load the SDK Asynchronously
+(function(d){
+var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+js = d.createElement('script'); js.id = id; js.async = true;
+js.src = "//connect.facebook.net/en_US/all.js";
+d.getElementsByTagName('head')[0].appendChild(js);
+}(document));
+</script>
+
+<div id="content1" class="greybox2">
+	<div style="text-align:center"><img src="/public/img/FrontPage.png"></div>
+	<h1> Who's In Your Class? </h1>
+	<hr>
+	<p class="p2">Input your courses and compare your schedule with your friends.</p>
+</div>
+<div id="login_wrapper" class="greybox2">
+	<h3>Schedule Comparinator 2012 is now out of beta!</h3>
+
+	<% if @student.nil? %>
+	<h1>Sign up or Login</h1>
+	<p>Signing up is as easy as logging in with your Facebook account. Your information will automatically be loaded from your Facebook account, and there's no need to give us your password.</p>
+	<p>So what are you waiting for? Sign up now and compare your schedule today!</p>
+	<button id="fb_login" class="g-button blue" onclick="fblogin()">Login with Facebook</button>
+	<script>
+		function fblogin() {
+			// show the login window
+			FB.login(function(rsp){
+				// check if user authorized login
+				if (rsp.authResponse) {
+					// redirect and login
+					url = window.location.protocol + "//" + window.location.host + "/login?token=" + FB.getAccessToken();
+					window.location.href = url;
+				} else {
+					console.log('Not authorized.');
+				}
+			});
+		}
+	</script>
+	<% else %>
+	<h1>Welcome back, <%= @student.first_name %>!</h3>
+	<a class="g-button blue" href="home">Compare Schedules</a>
+	<% end %>
+	<br><br><hr><div class="fb-like-box" data-href="http://www.facebook.com/ScheduleComparinator" data-show-faces="false" data-stream="false" data-header="true"></div>
+</div>
+<%= partial :'part/foot' %>

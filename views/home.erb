@@ -1,0 +1,39 @@
+<% @title = 'Home - Schedule Comparinator 2012'; @user_css = 'home' %>
+<%= partial :'part/head' %>
+<div id="home" class="greybox">
+	<h1>Your Schedule</h1>
+	<strong style="font-family:'PT Sans'">Notice: For some classes with many students (AP Computer Science or IB English, for example), there may be more people listed than are actually in your class, because of multiple teachers teaching the same class in the same block. Thanks for understanding!</strong>
+	<p>Like it? Hate it? <a href="https://docs.google.com/spreadsheet/viewform?formkey=dFQwQ3R0VjA3Z282UTh5alY2Rmxza3c6MQ#gid=0">Tell us what you think!</a></p>
+	<hr>
+
+	<% (1..8).each do |i|
+	split_sems = (@list_of_students[i][:name] != @list_of_students[i+8][:name]) %>
+		<h2><%= "#{@list_of_students[i][:name]} (#{@list_of_students[i][:students].length})" %></h2>
+		<h4>Block <%= i %>, <%= split_sems ? "first semester" : "both semesters" %></h4>
+		<ul class="studentlist">
+			<% @list_of_students[i][:students].each do |student| %>
+			<li>
+				<img class="avatar" src="<%= student.avatar %>" />
+				<%= student.name %>
+			</li>
+			<% end %>
+		</ul>
+		<div class="clear" ></div>
+
+		<% if split_sems %>
+			<h2><%= "#{@list_of_students[i+8][:name]} (#{@list_of_students[i+8][:students].length})" %></h2>
+			<h4>Block <%= i %>, second semester</h4>
+			<ul class="studentlist">
+				<% @list_of_students[i+8][:students].each do |student| %>
+				<li>
+					<img class="avatar" src="<%= student.avatar %>" />
+					<%= student.name %>
+				</li>
+				<% end %>
+			</ul>
+			<div class="clear" ></div>
+		<% end %>
+	<% end %>
+
+</div>
+<%= partial :'part/foot' %>

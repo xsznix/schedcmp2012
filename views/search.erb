@@ -1,0 +1,14 @@
+<% @title = 'Search - Schedule Comparinator 2012'; @user_css = 'search' %>
+<%= partial :'part/head' %>
+<div id="content" class="greybox">
+	<h1>Search for users</h1>
+	<% unless @result.nil? %>
+	<p id="result"><%= @result %></p>
+	<% end %>
+	<form>
+		<span>Enter a Facebook ID, a first name, or a full name.</span> <input id="name" name="name"<%= @name.nil? ? "" : " value='#{@name}'" %> /><input type="submit" class="g-button blue" />
+	</form>
+	<hr>
+	<p><%= Student.count %> people have signed up for Schedule Comparinator so far.</p>
+</div>
+<%= partial :'part/foot' %>

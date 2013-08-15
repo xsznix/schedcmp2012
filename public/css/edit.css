@@ -1,0 +1,27 @@
+#editor {
+	margin: 6em auto 16px auto;
+	padding: 8px 32px;
+	width: 70%;
+}
+#editor > h1 {
+	text-align: center;
+}
+#courses {
+	width: 100%;
+}
+#courses th, #courses td {
+	text-align: center;
+}
+}
+#courses .even {
+	background: #cacaca;
+}
+[id^=cnum] {
+	width: 60px;
+}
+#actions {
+	text-align: center;
+}
+#hac_import {
+	text-align: center;
+}

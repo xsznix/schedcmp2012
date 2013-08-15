@@ -1,0 +1,16 @@
+<% @title='Schedule Comparinator 2012'; @user_css='newuser' %>
+<%= partial :'part/head' %>
+<form method="POST" id="newuser" class="greybox">
+	<h1>Select Your School</h1>
+
+	<select id="school" name="school" class="styled-select">
+		<option value="ww">Westwood</option>
+		<option value="mn">McNeil</option>
+		<option value="rr">Round Rock</option>
+		<option value="sp">Stony Point</option>
+		<option value="cr">Cedar Ridge</option>
+	</select>
+
+	<input type="submit" class="g-button blue" />
+</form>
+<%= partial :'part/foot' %>

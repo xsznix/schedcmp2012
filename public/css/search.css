@@ -1,0 +1,16 @@
+h1, p, form {
+	text-align: center;
+}
+
+#content {
+	width: 50%;
+	margin: 6em auto 0 auto;
+}
+
+#result {
+	color: blue;
+}
+
+.g-button {
+	margin-left: 4px;
+}
