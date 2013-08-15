@@ -17,15 +17,15 @@ The development environment will run a local Redis server and an instance of SQL
 
 The released code does not contain the Facebook application ID and secret that we used for Schedule Comparinator 2012. To enable login via Facebook, you will need to [create an application on Facebook](https://developers.facebook.com/apps/)
 
-Afterwards, paste your app ID and secret into `app.rb` lines 13 and 14. Also paste your app ID into `views/index.erb` line 7.
+Afterwards, paste your app ID and secret into `app.rb` lines 41 and 42. Also paste your app ID into `views/index.erb` line 7.
 
 ### Other important keys
 
 Some sections of the code contained important keys that we cannot publish for security reasons. To create your own instance of the app, we highly recommend that you also create your own keys.
 
-- `app.rb` line 34 contains a session secret. You should change this to something secret so that a hacker cannot forge a session.
+- `app.rb` line 62 contains a session secret. You should change this to something secret so that a hacker cannot forge a session.
 
-- `routes/main.rb` line 257 contains a password that is required to add together courses. You should change this to something secret so that a hacker cannot wreak havoc on comparination.
+- `routes/main.rb` line 285 contains a password that is required to add together courses. You should change this to something secret so that a hacker cannot wreak havoc on comparination.
 
 ## Developing
 
